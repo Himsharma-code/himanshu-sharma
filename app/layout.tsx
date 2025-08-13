@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Inter, Poppins } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
+import { EnhancedBackground } from "@/components/enhanced-background"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -165,6 +166,7 @@ export default function RootLayout({
       </head>
       <body className="font-inter antialiased">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
+          <EnhancedBackground />
           {children}
         </ThemeProvider>
       </body>
