@@ -98,10 +98,10 @@ export function ExperienceSection() {
           <p className="text-muted-foreground max-w-2xl mx-auto">My professional journey and key achievements</p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-border"></div>
+            <div className="hidden md:block absolute left-4 md:left-1/2 md:transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-border"></div>
 
             {experiences.map((experience, index) => (
               <motion.div
@@ -110,14 +110,13 @@ export function ExperienceSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className={`relative flex items-center mb-12 ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
+                className={`relative flex items-center mb-12 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
               >
                 {/* Timeline dot */}
-                <div className="absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 w-3 h-3 bg-[var(--electric-blue)] rounded-full border-4 border-background z-10"></div>
+                <div className="hidden md:block absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 w-3 h-3 bg-[var(--electric-blue)] rounded-full border-4 border-background z-10"></div>
 
-                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"} ml-12 md:ml-0`}>
+                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"} sm:ml-12 md:ml-0`}>
                   <Card className="hover:shadow-lg transition-shadow duration-300">
                     <CardHeader>
                       <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
