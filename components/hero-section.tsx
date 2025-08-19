@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { GithubIcon, LinkedinIcon, MapPinIcon, MailIcon, PhoneIcon } from "lucide-react"
+import { GithubIcon, LinkedinIcon, MapPinIcon, MailIcon, PhoneIcon, DownloadIcon } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 
@@ -83,6 +83,18 @@ export function HeroSection() {
               asChild
             >
               <a href="#contact">Get In Touch</a>
+            </Button>
+
+            <Button
+              size="lg"
+              variant="outline"
+              className="px-8"
+              asChild
+            >
+              <a href="/cv.pdf" download="Himanshu_Sharma_CV.pdf">
+                <DownloadIcon className="h-5 w-5 " />
+                Download CV
+              </a>
             </Button>
 
             <div className="flex items-center gap-4">
