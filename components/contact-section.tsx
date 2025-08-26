@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { MailIcon, PhoneIcon, MapPinIcon, SendIcon } from "lucide-react"
-import { motion } from "framer-motion"
-import { useToast } from "@/hooks/use-toast"
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { MailIcon, PhoneIcon, MapPinIcon, SendIcon } from "lucide-react";
+import { motion } from "framer-motion";
+import { toast } from "sonner";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -17,32 +17,46 @@ export function ContactSection() {
     email: "",
     subject: "",
     message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const { toast } = useToast()
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    toast({
-      title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    })
+      const data = await res.json();
 
-    setFormData({ name: "", email: "", subject: "", message: "" })
-    setIsSubmitting(false)
-  }
+      if (!res.ok) throw new Error(data.error || "Something went wrong");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      toast.success("Message Sent!", {
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (err: any) {
+      toast.error("Failed to Send", {
+        description: err.message || "Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
-    }))
-  }
+    }));
+  };
 
   return (
     <section id="contact" className="py-20">
@@ -57,7 +71,9 @@ export function ContactSection() {
           <h2 className="text-3xl sm:text-4xl font-poppins font-bold mb-4">
             Get In <span className="gradient-text">Touch</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">Let's discuss your next project or opportunity</p>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Let's discuss your next project or opportunity
+          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
@@ -69,10 +85,13 @@ export function ContactSection() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-poppins font-semibold mb-6">Let's Connect</h3>
+              <h3 className="text-2xl font-poppins font-semibold mb-6">
+                Let's Connect
+              </h3>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                I'm always interested in new opportunities and exciting projects. Whether you have a question, want to
-                discuss a project, or just want to say hello, I'd love to hear from you.
+                I'm always interested in new opportunities and exciting
+                projects. Whether you have a question, want to discuss a
+                project, or just want to say hello, I'd love to hear from you.
               </p>
             </div>
 
@@ -127,7 +146,9 @@ export function ContactSection() {
           >
             <Card>
               <CardHeader>
-                <CardTitle className="text-xl font-poppins">Send a Message</CardTitle>
+                <CardTitle className="text-xl font-poppins">
+                  Send a Message
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
@@ -176,7 +197,7 @@ export function ContactSection() {
 
                   <Button
                     type="submit"
-                    className="w-full bg-[var(--electric-blue)] hover:bg-[var(--electric-blue)]/80"
+                    className="w-full bg-[var(--electric-blue)] hover:bg-[var(--electric-blue)]/80 cursor-pointer"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
@@ -195,5 +216,5 @@ export function ContactSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

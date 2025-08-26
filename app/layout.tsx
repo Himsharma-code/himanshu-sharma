@@ -1,26 +1,28 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter, Poppins } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
-import "./globals.css"
-import { EnhancedBackground } from "@/components/enhanced-background"
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter, Poppins } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import "./globals.css";
+import { EnhancedBackground } from "@/components/enhanced-background";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
-})
+});
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
   variable: "--font-poppins",
-})
+});
 
 export const metadata: Metadata = {
   title: {
-    default: "Himanshu Sharma - Full Stack Developer | React.js, Next.js, Node.js Expert",
+    default:
+      "Himanshu Sharma - Full Stack Developer | React.js, Next.js, Node.js Expert",
     template: "%s | Himanshu Sharma - Full Stack Developer",
   },
   description:
@@ -43,7 +45,9 @@ export const metadata: Metadata = {
     "Performance Optimization",
     "Himanshu Sharma Developer",
   ],
-  authors: [{ name: "Himanshu Sharma", url: "https://himanshu-portfolio.vercel.app" }],
+  authors: [
+    { name: "Himanshu Sharma", url: "https://himanshu-portfolio.vercel.app" },
+  ],
   creator: "Himanshu Sharma",
   publisher: "Himanshu Sharma",
   formatDetection: {
@@ -76,7 +80,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Himanshu Sharma - Full Stack Developer",
-    description: "Building performant, scalable web applications with React.js, Next.js, and modern technologies",
+    description:
+      "Building performant, scalable web applications with React.js, Next.js, and modern technologies",
     images: ["/images/himanshu-profile.jpeg"],
     creator: "@himanshu_dev",
   },
@@ -95,20 +100,27 @@ export const metadata: Metadata = {
     google: "your-google-verification-code",
   },
   category: "technology",
-  generator: 'v0.app'
-}
+  generator: "v0.app",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${inter.variable} ${poppins.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#00d4ff" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=5"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -117,9 +129,11 @@ export default function RootLayout({
               "@type": "Person",
               name: "Himanshu Sharma",
               jobTitle: "Full Stack Web Developer",
-              description: "Experienced Full Stack Developer with 4+ years building scalable web applications",
+              description:
+                "Experienced Full Stack Developer with 4+ years building scalable web applications",
               url: "https://himanshu-portfolio.vercel.app",
-              image: "https://himanshu-portfolio.vercel.app/images/himanshu-profile.jpeg",
+              image:
+                "https://himanshu-portfolio.vercel.app/images/himanshu-profile.jpeg",
               email: "himanshu15101998@gmail.com",
               telephone: "+91-6352559089",
               address: {
@@ -165,11 +179,17 @@ export default function RootLayout({
         />
       </head>
       <body className="font-inter antialiased">
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange={false}
+        >
           <EnhancedBackground />
           {children}
         </ThemeProvider>
+        <Toaster richColors position="top-right" />
       </body>
     </html>
-  )
+  );
 }
