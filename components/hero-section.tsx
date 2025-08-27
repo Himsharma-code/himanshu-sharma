@@ -1,13 +1,23 @@
-"use client"
+"use client";
 
-import { Button } from "@/components/ui/button"
-import { GithubIcon, LinkedinIcon, MapPinIcon, MailIcon, PhoneIcon, DownloadIcon } from "lucide-react"
-import { motion } from "framer-motion"
-import Image from "next/image"
+import { Button } from "@/components/ui/button";
+import {
+  GithubIcon,
+  LinkedinIcon,
+  MapPinIcon,
+  MailIcon,
+  PhoneIcon,
+  DownloadIcon,
+} from "lucide-react";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function HeroSection() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -23,9 +33,10 @@ export function HeroSection() {
           >
             <div className="relative w-24 h-24 mx-auto mb-6">
               <Image
-                src="/images/himanshu-profile.jpeg"
+                src="/images/himanshu-profile.webp"
                 alt="Himanshu Sharma"
-                fill
+                width={96}
+                height={96}
                 className="rounded-full object-cover border-3 border-[var(--electric-blue)] shadow-lg hover:shadow-xl transition-shadow duration-300"
                 priority
               />
@@ -67,8 +78,8 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            Building performant, scalable, and user-focused web applications with 4 years of experience in modern
-            technologies.
+            Building performant, scalable, and user-focused web applications
+            with 4 years of experience in modern technologies.
           </motion.p>
 
           <motion.div
@@ -85,12 +96,7 @@ export function HeroSection() {
               <a href="#contact">Get In Touch</a>
             </Button>
 
-            <Button
-              size="lg"
-              variant="outline"
-              className="px-8"
-              asChild
-            >
+            <Button size="lg" variant="outline" className="px-8" asChild>
               <a href="/cv.pdf" download="Himanshu_Sharma_CV.pdf">
                 <DownloadIcon className="h-5 w-5 " />
                 Download CV
@@ -99,12 +105,20 @@ export function HeroSection() {
 
             <div className="flex items-center gap-4">
               <Button variant="outline" size="icon" asChild>
-                <a href="https://github.com/himanshu15101998" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://github.com/himanshu15101998"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <GithubIcon className="h-5 w-5" />
                 </a>
               </Button>
               <Button variant="outline" size="icon" asChild>
-                <a href="https://linkedin.com/in/himanshu15101998" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://linkedin.com/in/himanshu15101998"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <LinkedinIcon className="h-5 w-5" />
                 </a>
               </Button>
@@ -127,10 +141,13 @@ export function HeroSection() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1.2 }}
           >
-            <p>4+ Years Experience • React.js • Next.js • TypeScript • Node.js • GraphQL</p>
+            <p>
+              4+ Years Experience • React.js • Next.js • TypeScript • Node.js •
+              GraphQL
+            </p>
           </motion.div>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }

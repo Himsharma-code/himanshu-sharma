@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { Card, CardContent } from "@/components/ui/card"
-import { motion } from "framer-motion"
-import Image from "next/image"
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function AboutSection() {
   return (
@@ -35,10 +35,12 @@ export function AboutSection() {
                 <div className="aspect-square bg-gradient-to-br from-[var(--electric-blue)]/20 to-[var(--neon-green)]/20 flex items-center justify-center p-8">
                   <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-[var(--electric-blue)]">
                     <Image
-                      src="/images/himanshu-profile.jpeg"
+                      src="/images/himanshu-profile.webp"
                       alt="Himanshu Sharma"
-                      fill
-                      className="object-cover"
+                      width={500}
+                      height={500}
+                      priority
+                      className="object-cover  w-full h-full"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
@@ -55,40 +57,60 @@ export function AboutSection() {
             className="space-y-6"
           >
             <div>
-              <h3 className="text-2xl font-poppins font-semibold mb-4">Full Stack Web Developer</h3>
+              <h3 className="text-2xl font-poppins font-semibold mb-4">
+                Full Stack Web Developer
+              </h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                With 4 years of experience in web development, I specialize in building performant and scalable web
-                applications. My expertise spans across modern JavaScript frameworks, backend technologies, and cloud
-                platforms.
+                With 4 years of experience in web development, I specialize in
+                building performant and scalable web applications. My expertise
+                spans across modern JavaScript frameworks, backend technologies,
+                and cloud platforms.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                I'm passionate about performance optimization, distributed systems, and creating user-focused solutions.
-                I've successfully led teams, mentored junior developers, and delivered projects that improved business
-                metrics significantly.
+                I'm passionate about performance optimization, distributed
+                systems, and creating user-focused solutions. I've successfully
+                led teams, mentored junior developers, and delivered projects
+                that improved business metrics significantly.
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-6">
               <div>
-                <h4 className="font-semibold text-[var(--electric-blue)] mb-2">4</h4>
-                <p className="text-sm text-muted-foreground">Years Experience</p>
+                <h4 className="font-semibold text-[var(--electric-blue)] mb-2">
+                  4
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Years Experience
+                </p>
               </div>
               <div>
-                <h4 className="font-semibold text-[var(--neon-green)] mb-2">15+</h4>
-                <p className="text-sm text-muted-foreground">Projects Completed</p>
+                <h4 className="font-semibold text-[var(--neon-green)] mb-2">
+                  15+
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Projects Completed
+                </p>
               </div>
               <div>
-                <h4 className="font-semibold text-[var(--electric-blue)] mb-2">3+</h4>
-                <p className="text-sm text-muted-foreground">Developers Mentored</p>
+                <h4 className="font-semibold text-[var(--electric-blue)] mb-2">
+                  3+
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Developers Mentored
+                </p>
               </div>
               <div>
-                <h4 className="font-semibold text-[var(--neon-green)] mb-2">25%</h4>
-                <p className="text-sm text-muted-foreground">Performance Improvement</p>
+                <h4 className="font-semibold text-[var(--neon-green)] mb-2">
+                  25%
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  Performance Improvement
+                </p>
               </div>
             </div>
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }
