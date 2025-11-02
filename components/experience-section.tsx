@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { CalendarIcon, MapPinIcon } from "lucide-react"
-import { motion } from "framer-motion"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { CalendarIcon, MapPinIcon } from "lucide-react";
+import { motion } from "framer-motion";
 
 const experiences = [
   {
@@ -18,11 +18,19 @@ const experiences = [
       "Constructed a multi-tenant admin dashboard with i18n localisation for a global food ordering platform, supporting three languages, and increasing user engagement by 15% across international markets",
       "Set up code generation workflows using Orval in React.js, automating API client generation, and reducing boilerplate code by 30%",
     ],
-    technologies: ["React.js", "Nest.js", "pgvector", "OpenAI API", "i18n", "Orval", "Multi-tenant Architecture"],
+    technologies: [
+      "React.js",
+      "Nest.js",
+      "pgvector",
+      "OpenAI API",
+      "i18n",
+      "Orval",
+      "Multi-tenant Architecture",
+    ],
   },
   {
     title: "Full Stack Developer",
-    company: "SyncSignature",
+    company: "X-Momentum Technologies Private Limited",
     location: "Surat",
     period: "Feb 2024 – Present",
     achievements: [
@@ -79,7 +87,7 @@ const experiences = [
       "TDD",
     ],
   },
-]
+];
 
 export function ExperienceSection() {
   return (
@@ -95,7 +103,9 @@ export function ExperienceSection() {
           <h2 className="text-3xl sm:text-4xl font-poppins font-bold mb-4">
             Work <span className="gradient-text">Experience</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">My professional journey and key achievements</p>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            My professional journey and key achievements
+          </p>
         </motion.div>
 
         <div className="max-w-[1400px] mx-auto">
@@ -110,13 +120,18 @@ export function ExperienceSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className={`relative flex items-center mb-12 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                  }`}
+                className={`relative flex items-center mb-12 ${
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                }`}
               >
                 {/* Timeline dot */}
                 <div className="hidden md:block absolute left-4 md:left-1/2 md:transform md:-translate-x-1/2 w-3 h-3 bg-[var(--electric-blue)] rounded-full border-4 border-background z-10"></div>
 
-                <div className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"} sm:ml-12 md:ml-0`}>
+                <div
+                  className={`w-full md:w-1/2 ${
+                    index % 2 === 0 ? "md:pr-8" : "md:pl-8"
+                  } sm:ml-12 md:ml-0`}
+                >
                   <Card className="hover:shadow-lg transition-shadow duration-300">
                     <CardHeader>
                       <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
@@ -125,21 +140,34 @@ export function ExperienceSection() {
                         <MapPinIcon className="h-4 w-4 ml-2" />
                         <span>{experience.location}</span>
                       </div>
-                      <CardTitle className="text-xl font-poppins">{experience.title}</CardTitle>
-                      <p className="text-[var(--electric-blue)] font-medium">{experience.company}</p>
+                      <CardTitle className="text-xl font-poppins">
+                        {experience.title}
+                      </CardTitle>
+                      <p className="text-[var(--electric-blue)] font-medium">
+                        {experience.company}
+                      </p>
                     </CardHeader>
                     <CardContent>
                       <ul className="space-y-2 mb-4">
                         {experience.achievements.map((achievement, i) => (
-                          <li key={i} className="text-sm text-muted-foreground flex items-start">
-                            <span className="text-[var(--neon-green)] mr-2 mt-1">•</span>
+                          <li
+                            key={i}
+                            className="text-sm text-muted-foreground flex items-start"
+                          >
+                            <span className="text-[var(--neon-green)] mr-2 mt-1">
+                              •
+                            </span>
                             {achievement}
                           </li>
                         ))}
                       </ul>
                       <div className="flex flex-wrap gap-2">
                         {experience.technologies.map((tech) => (
-                          <Badge key={tech} variant="outline" className="text-xs">
+                          <Badge
+                            key={tech}
+                            variant="outline"
+                            className="text-xs"
+                          >
                             {tech}
                           </Badge>
                         ))}
@@ -153,5 +181,5 @@ export function ExperienceSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
