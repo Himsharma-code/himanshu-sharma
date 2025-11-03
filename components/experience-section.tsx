@@ -32,7 +32,7 @@ const experiences = [
     title: "Full Stack Developer",
     company: "X-Momentum Technologies Private Limited",
     location: "Surat",
-    period: "Feb 2024 – Present",
+    period: "Jan 2024 – Nov 2024",
     achievements: [
       "Led the development across the entire stack, managing both frontend and backend services, and overseeing deployment on AWS infrastructure",
       "Developed frontend components using React.js, integrated with ShadCN UI and styled with Tailwind CSS for a seamless user interface",
